@@ -108,57 +108,71 @@ class Calc:
 
       
       def equals(self):
-            second_number = self.entry.get()
-            self.entry.delete(0, END)
+            try:
+                  second_number = self.entry.get()
+                  self.entry.delete(0, END)
 
-            if operation == 'add':
-                  self.entry.insert(0, f_num + int(second_number))
-            elif operation == 'subtract':
-                self.entry.insert(0, f_num - int(second_number))
-            elif operation == 'divide':
-                  try: #Try Zero division error
-                      self.entry.insert(0, f_num / int(second_number))
-                  except ZeroDivisionError:
-                        self.entry.delete(0, END)
-                        self.entry.insert(END, 'Can not divide by Zero')
+                  if operation == 'add':
+                        self.entry.insert(0, f_num + int(second_number))
+                  elif operation == 'subtract':
+                        self.entry.insert(0, f_num - int(second_number))
+                  elif operation == 'divide':
+                        try: #Try Zero division error
+                              self.entry.insert(0, f_num / int(second_number))
+                        except ZeroDivisionError:
+                              self.entry.delete(0, END)
+                              self.entry.insert(END, 'Can not divide by Zero')
 
-            elif operation == 'multiply':
-                      self.entry.insert(0, f_num * int(second_number))
-
+                  elif operation == 'multiply':
+                        self.entry.insert(0, f_num * int(second_number))
+            except NameError:
+                  pass
 
       def adding(self): #Deletes current entry texts and saves it in a variable for later use
-            first_number = self.entry.get()
-            global f_num
-            global operation
-            operation = 'add'
-            f_num = int(first_number)
-            self.entry.delete(0, END)
+            try:
+                  first_number = self.entry.get()
+                  global f_num
+                  global operation
+                  operation = 'add'
+                  f_num = int(first_number)
+                  self.entry.delete(0, END)
+            except ValueError:
+                  pass
 
       def subtract(self):
-            first_number = self.entry.get()
-            global f_num
-            global operation
-            operation = 'subtract'
-            f_num = int(first_number)
-            self.entry.delete(0, END)
+            try:
+                  first_number = self.entry.get()
+                  global f_num
+                  global operation
+                  operation = 'subtract'
+                  f_num = int(first_number)
+                  self.entry.delete(0, END)
+            except ValueError:
+                  pass
 
 
       def divide(self):
-            first_number = self.entry.get()
-            global f_num
-            global operation
-            operation = 'divide'
-            f_num = int(first_number)
-            self.entry.delete(0, END)
+            try:
+                  first_number = self.entry.get()
+                  global f_num
+                  global operation
+                  operation = 'divide'
+                  f_num = int(first_number)
+                  self.entry.delete(0, END)
+            except ValueError:
+                  pass
 
 
       def multiply(self):
-            first_number = self.entry.get()
-            global f_num
-            global operation
-            operation = 'multiply'
-            f_num = int(first_number)
-            self.entry.delete(0, END)
+            try:
+                  first_number = self.entry.get()
+                  global f_num
+                  global operation
+                  operation = 'multiply'
+                  f_num = int(first_number)
+                  self.entry.delete(0, END)
+            except ValueError:
+                  pass
 
 
 
